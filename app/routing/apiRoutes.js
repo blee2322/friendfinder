@@ -1,20 +1,33 @@
-var surveyData = require("../data/friends");
-
-// ROUTING
-// ===============================================================================
+var path = require("path");
+var friends = require("../data/friends");
 
 module.exports = function(app) {
 
-  app.get("/api/survey", function(req, res) {
-    res.json(surveyData);
+  app.get("/api/friends", function(req, res) {
+    res.json(friends);
   });
 
   // API POST Requests
-  app.post("/api/survey", function(req, res) {
+  app.post("/api/friends", function(req, res) {
 
-    var newfriend = req.body;
-  // console.log(newFriend);
-    friendData.push(newfriend);
-    res.json(newfriend);
+    var newFriend = req.body;
+    var friendResponse = newFriend.scores
+    // console.log(newFriend);
+    // console.log(friendResponses);
+    for(var i = 0; i < friendResponse.length; i++) {
+      var diff = 0;
+      for(var j = 0; j < friendResponse.length; j++){
+        diff += Math.abs(friends[i].scores[j] - friendResponse)
+      }
+      if(diff < totalDifference) {
+        console.log(diff);
+
+        totalDiffrence = diff;
+        matchName = friends[i].name;
+        matchImage = friends[i].photo; 
+      }
+    }
+    friends.push(newFriend)
+    res.json({status:"OK", matchName:matchName, matchImage:matchImage});
   });
-}
+};
