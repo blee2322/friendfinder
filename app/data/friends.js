@@ -1,6 +1,6 @@
 //DATA
 
-var friendsArray = [
+var friends = [
   {
     name:"Brandon",
     photo:"https://www.theartofbrandonlee.com/photography/",
@@ -17,4 +17,4 @@ var friendsArray = [
     scores:[1, 1, 1, 2, 3, 5, 2, 3, 4, 5]
   }
 ]
-module.exports = friendsArray;
+module.exports = friends;

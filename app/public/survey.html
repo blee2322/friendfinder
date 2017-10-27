@@ -6,6 +6,8 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -28,6 +30,7 @@
           <h3>Question 1</h3>
           <h4>Your mind Is always buzzing With unexplored ideas and plans.</h4>
           <select class="form-control form-control-sm" id="one">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -38,6 +41,7 @@
           <h3>Question 2</h3>
           <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
           <select class="form-control form-control-sm" id="two">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -48,6 +52,7 @@
           <h3>Question 3</h3>
           <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
           <select class="form-control form-control-sm" id="three">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -58,6 +63,7 @@
           <h3>Question 4</h3>
           <h4>You rarely do something just out of sheer curiosity.</h4>
           <select class="form-control form-control-sm" id="four">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -68,6 +74,7 @@
           <h3>Question 5</h3>
           <h4>People can rarely upset you.</h4>
           <select class="form-control form-control-sm" id="five">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -78,6 +85,7 @@
           <h3>Question 6</h3>
           <h4>It is often difficult for you to relate to other people’s feelings.</h4>
           <select class="form-control form-control-sm" id="six">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -88,6 +96,7 @@
           <h3>Question 7</h3>
           <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
           <select class="form-control form-control-sm" id="seven">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -98,6 +107,7 @@
           <h3>Question 8</h3>
           <h4>You rarely get carried away by fantasies and ideas.</h4>
           <select class="form-control form-control-sm" id="eight">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -108,6 +118,7 @@
           <h3>Question 9</h3>
           <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
           <select class="form-control form-control-sm" id="nine">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -118,6 +129,7 @@
           <h3>Question 10</h3>
           <h4>You feel more energetic after spending time with a group of people.</h4>
           <select class="form-control form-control-sm" id="ten">
+            <option value="">Select Option</option>
             <option value="1">1(Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -125,46 +137,60 @@
             <option value="5">5(Strongly Agree)</option>
           </select>
           <br>
-          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="mybtn">Submit</button>
+          <button type="button" class="btn btn-primary btn-block" id="submit">Submit</button>
         </form>
       <br>
       </div>
     </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+    <hr>
+    <a href="/api/friends">API Friends Link</a> | <a href="https://github.com">GitHub Repo</a>
   </div>
-</div>
+  <!-- Modal Below -->
+
+  <div id="bestMatch" class="modal">
+      <div class="modal-content">
+        <div class ="modal-header">
+          <button type = "button" class="close" data-dismiss="modal">Close</button>
+          <h2 class="modal-title">Best Match</h2>
+        </div>
+        <div class="modal-body">
+          <h3 id="nameMatch"></h3>
+          <h4 id="imageMatch"></h4>
+        </div>
+      </div>
+  </div>
+  <br>
   
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script type="text/javascript">
-    
-    $("#add-btn").on("click", function(event) {
+
+    $("#submit").on("click", function(event) {
       event.preventDefault();
       var newFriend = {
         name: $("#name").val().trim(),
         photo: $("#link").val().trim(),
-        scores:
+        scores:[
+          $("#one").val(),
+          $("#two").val(),
+          $("#three").val(),
+          $("#four").val(),
+          $("#five").val(),
+          $("#six").val(),
+          $("#seven").val(),
+          $("#eight").val(),
+          $("#nine").val(),
+          $("#ten").val()
+        ]
       };
-
-      // Question: What does this code do??
-      $.post("/api/new", newFriend)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding Friend...");
-      });
+      var currentURL = window.location.origin;
+      $.post(currentURL + "/api/friends", newFriend, function(data) {
+          $("#nameMatch").text(data.name);
+          $("#imageMatch").text(data.photo);
+          $("#bestMatch").modal("show");
+      })
+    // console.log(newFriend);
     });
+
   </script>
 
 </body>

@@ -11,23 +11,29 @@ module.exports = function(app) {
   app.post("/api/friends", function(req, res) {
 
     var newFriend = req.body;
-    var friendResponse = newFriend.scores
-    // console.log(newFriend);
-    // console.log(friendResponses);
-    for(var i = 0; i < friendResponse.length; i++) {
-      var diff = 0;
+    var friendResponse = newFriend["scores[]"];
+    console.log(newFriend);
+    console.log(friendResponse);
+    var scoresArray = [];
+    var friendCount = 0;
+    var best = 0;
+    for(var i = 0; i < friends.length; i++) {
+      var scorediff = 0;
       for(var j = 0; j < friendResponse.length; j++){
-        diff += Math.abs(friends[i].scores[j] - friendResponse)
+        scorediff += Math.abs(friends[i].scores[j] - parseInt(friendResponse[j]));
       }
-      if(diff < totalDifference) {
-        console.log(diff);
-
-        totalDiffrence = diff;
-        matchName = friends[i].name;
-        matchImage = friends[i].photo; 
+      scoresArray.push(scorediff);
+    }
+    console.log(scoresArray);
+    for(var i = 0; i < scoresArray.length; i++){
+      if(scoresArray[i] <= scoresArray[best]) {
+        best = i;
       }
     }
-    friends.push(newFriend)
-    res.json({status:"OK", matchName:matchName, matchImage:matchImage});
+    console.log(best);
+    var bestFriend = friends[best];
+    console.log(bestFriend);
+    res.json(bestFriend);
+    friends.push(newFriend);
   });
 };
