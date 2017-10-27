@@ -145,21 +145,25 @@
     <hr>
     <a href="/api/friends">API Friends Link</a> | <a href="https://github.com">GitHub Repo</a>
   </div>
+  <br>
   <!-- Modal Below -->
-
-  <div id="bestMatch" class="modal">
+  <div id="resultModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
-        <div class ="modal-header">
-          <button type = "button" class="close" data-dismiss="modal">Close</button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 class="modal-title">Best Match</h2>
         </div>
         <div class="modal-body">
-          <h3 id="nameMatch"></h3>
-          <h4 id="imageMatch"></h4>
+          <h2 id ="nameMatch"></h2>
+          <h3 id="matchLink"></h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data dismiss="modal">Close</button>
         </div>
       </div>
+    </div>
   </div>
-  <br>
   
   <script src="https://code.jquery.com/jquery.js"></script>
   <script type="text/javascript">
@@ -183,12 +187,27 @@
         ]
       };
       var currentURL = window.location.origin;
+
       $.post(currentURL + "/api/friends", newFriend, function(data) {
           $("#nameMatch").text(data.name);
           $("#imageMatch").text(data.photo);
-          $("#bestMatch").modal("show");
-      })
+      });
+
+
     // console.log(newFriend);
+    //clear values
+      $("#name").val("");
+      $("#link").val("");
+      $("#one").val("");
+      $("#two").val("");
+      $("#three").val("");
+      $("#four").val("");
+      $("#five").val("");
+      $("#six").val("");
+      $("#seven").val("");
+      $("#eight").val("");
+      $("#nine").val("");
+      $("#ten").val("");
     });
 
   </script>
